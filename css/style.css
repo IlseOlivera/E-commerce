@@ -2,7 +2,7 @@
     --primary-color: #F6F6F6;
     --secondary-color: #1CB4A1;
     --third-color: #E6E6E6;
-    --fourth-color: #D9D9D9;
+    --fourth-color: #4ccedf;
     --fifth-color: #CCCCCC;
     --sixth-color: #BFBFBF;
 }
@@ -152,6 +152,8 @@ li:hover a{
     transition: all 0.3s ease;
 }
 
+/* login */
+
 .login{
     width: 100%;
     max-width: 500px;
@@ -197,5 +199,210 @@ li:hover a{
 
 .login input[type="submit"]:hover{
     background-color: var(--fourth-color);
-    color: #000;
 }
+
+/* registrarse */
+
+.registrarse{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 35px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    box-shadow: 0px 4px 18.6px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+}
+
+.registrarse h1{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.registrarse input[type="text"],
+.registrarse input[type="password"]{
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--third-color);
+    margin-bottom: 20px;
+}
+
+.registrarse input[type="submit"]{
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.registrarse input[type="submit"]:hover{
+    background-color: var(--fourth-color);
+}
+
+/* carrito */
+
+.carrito{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+.lista-carrito{
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+.lista-carrito .item{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 18.6px 0px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista-carrito .item img{
+    width: 100px;
+    margin-right: 20px;
+}
+
+.lista-carrito .item .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista-carrito .item .info .name{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.lista-carrito .item .info .price{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.lista-carrito .item .info .price span{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+
+.lista-carrito .item .actions input[type="number"]::-webkit-inner-spin-button,
+.lista-carrito .item .actions input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.lista-carrito .item .actions input[type="number"]{
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--third-color);
+    text-align: center;
+}
+
+.lista-carrito .item .actions button{
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lista-carrito .item .actions button:hover{
+    background-color: var(--fourth-color);
+}
+
+.lista-carrito .item .actions{
+
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+/* total */
+
+.total{
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 4px 18.6px 0px rgba(0, 0, 0, 0.15);
+
+    border-radius: 15px;
+}
+
+.total .price{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.total .price span{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.total button{
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.total button:hover{
+    background-color: var(--fourth-color);
+}
+

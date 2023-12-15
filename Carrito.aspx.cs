@@ -29,6 +29,6 @@ public partial class Default : Page
     public void btnCarrito_Click(object sender, EventArgs e)
     {
         // Navigate to search page
-        Response.Redirect("Carrito.aspx");
+        Response.Redirect("Search.aspx");
     }
 }

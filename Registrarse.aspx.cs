@@ -7,18 +7,17 @@ public partial class Default : Page
     {
         // Code executed when the page is loaded
     }
-    public void btnRegistrarse_Click(object sender, EventArgs e)
+
+    public void btnIniciarSecion_Click(object sender, EventArgs e)
     {
-        // navigate to default page
-        Response.Redirect("Registrarse.aspx");
-        
+        // Navigate to new register page
+        Response.Redirect("InicioSesion.aspx");
     }
 
-    public void btnIniciarSesion_Click(object sender, EventArgs e)
+    public void btnRegistarse_Click(object sender, EventArgs e)
     {
-        // navigate to default page
-        Response.Redirect("Default.aspx");
-        
+        // Navigate to new register page
+        Response.Redirect("InicioSesion.aspx");
     }
 
     public void btnHome_Click(object sender, EventArgs e)
