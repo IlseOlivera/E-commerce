@@ -4,7 +4,10 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="navigation" Runat="Server">
     <li>
-        <asp:LinkButton ID="lnkClientes" runat="server" Text="Registrarse" OnClick="btnRegistrarse_Click"></asp:LinkButton>
+        <asp:LinkButton ID="lnkHome" runat="server" Text="Home" OnClick="btnHome_Click"></asp:LinkButton>
+    </li>
+    <li>
+        <asp:LinkButton ID="lnkRegistrase" runat="server" Text="Registrarse" OnClick="btnRegistrarse_Click"></asp:LinkButton>
     </li>
 </asp:Content>
 

@@ -12,6 +12,13 @@
     <li>
         <asp:LinkButton ID="lnkIniciarSesion" runat="server" Text="Iniciar Sesion" OnClick="btnIniciarSecion_Click"></asp:LinkButton>
     </li>
+
+    <li>
+        <asp:LinkButton ID="lnkCarrito" runat="server" OnClick="btnCarrito_Click">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </asp:LinkButton>
+    </li>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">

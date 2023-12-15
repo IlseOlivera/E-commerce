@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <script src="https://kit.fontawesome.com/fd8ab87d68.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css">
 
         <asp:ContentPlaceHolder ID="head" runat="server">
