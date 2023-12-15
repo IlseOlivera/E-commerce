@@ -7,13 +7,6 @@ public partial class Default : Page
     {
         // Code executed when the page is loaded
     }
-
-    protected void Button_Click(object sender, EventArgs e)
-    {
-        // Code executed when a button is clicked
-    }
-
-    // Other methods and event handlers can be added here
     public void btnProductos_Click(object sender, EventArgs e)
     {
         // navigate to default page
@@ -24,7 +17,7 @@ public partial class Default : Page
     public void btnIniciarSecion_Click(object sender, EventArgs e)
     {
         // Navigate to new register page
-        Response.Redirect("NewRegister.aspx");
+        Response.Redirect("InicioSesion.aspx");
     }
 
     public void btnClientes_Click(object sender, EventArgs e)
