@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Web.UI;
 using System.Configuration;
 using System.Web.UI.WebControls;
+using System.Collections.Generic;
 
 public partial class Default : Page
 {
@@ -115,17 +116,98 @@ public partial class Default : Page
 
         // bind the data
         rptProductos.DataBind();
-
-
     }
 
-    public void ObtenerDetalles_Click(object sender, EventArgs e)
+    public void btnAgregarCarrito_Click(object sender, EventArgs e)
     {
-        // get the id of the product
-        string id = ((Button)sender).CommandArgument;
+        //valite if the user is logged in
+        if (Session["user"] == null)
+        {
+            // show the error message
+            Response.Write("<script>alert('Debe iniciar sesion para agregar al carrito')</script>");
+            return;
+        }
 
-        // show an alert with the id like a javascript alert
-        Response.Write("<script>alert('" + id + "')</script>");
-        
+        // get the id of the product
+        int idProducto = Convert.ToInt32(((Button)sender).CommandArgument);
+
+        // save the product in the database
+        // get the connection string
+        string connStr = "Server=localhost;Database=ecommerce;Uid=root;Pwd=;";
+
+        // create a new connection
+        MySqlConnection conn = new MySqlConnection(connStr);
+        conn.Open();
+
+        // get the id of the user
+        int idUsuario = (int)Session["Id"];
+
+        string message = string.Empty;
+
+        // validate if the product is already in the shopping cart
+        if (validateCardShopping(idProducto, idUsuario))
+        {
+            // query to update the product in the carrito
+            string query = "UPDATE usuario_productos SET cantidad = (cantidad + 1) WHERE UP_U_Id = " + idUsuario + " AND UP_P_Id = " + idProducto + ";";
+
+            // execute the query
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            message = "Se agrego uno mas al carrito";
+        }
+        else
+        {
+            // query to insert the product in the carrito
+            string query = "INSERT INTO usuario_productos (UP_U_Id, UP_P_Id) VALUES (" + idUsuario + ", " + idProducto + ")";
+
+            // execute the query
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            message = "Producto agregado al carrito";
+        }
+
+        // close the connection
+        conn.Close();
+
+        // show the success message
+        Response.Write("<script>alert('" + message +"')</script>");
     }
+
+    public bool validateCardShopping(int idProducto, int idUsuario)
+    {
+        // get the connection string
+        string connStr = "Server=localhost;Database=ecommerce;Uid=root;Pwd=;";
+
+        // create the connection
+        MySqlConnection conn = new MySqlConnection(connStr);
+        conn.Open();
+
+        // create the query
+        string query = "SELECT * FROM usuario_productos WHERE UP_U_Id = " + idUsuario + " AND UP_P_Id = " + idProducto + ";";
+
+        // create the data adapter
+        MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+
+        // create the data table
+        DataTable dt = new DataTable();
+
+        // fill the data table
+        adapter.Fill(dt);
+
+        // close the connection
+        conn.Close();
+
+        // validate if the product is already in the shopping cart
+        if (dt.Rows.Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
