@@ -31,24 +31,24 @@ VALUES ('carlos@example.com', MD5('carlos789'), 'Carlos', 'Martínez', 'Ruiz');
 -- insertar las relaciones
 -- Ejemplo 1: Asociar un producto a un usuario
 INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`)
-VALUES (2, 2);
+VALUES (2, 2, 1);
 
 -- Ejemplo 2: 
-INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`)
-VALUES (2, 2);
+INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`, `cantidad`)
+VALUES (2, 2, 1);
 
 -- Ejemplo 3: 
-INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`)
-VALUES (2, 3);
+INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`, `cantidad`)
+VALUES (2, 3, 2);
 
 -- Ejemplo 4: 
-INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`)
-VALUES (3, 2);
+INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`, `cantidad`)
+VALUES (3, 2, 1);
 
 -- Ejemplo 5: 
-INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`)
-VALUES (3, 3);
+INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`, `cantidad`)
+VALUES (3, 3, 1);
 
 -- Ejemplo 6: 
-INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`)
-VALUES (4, 3);
+INSERT INTO `ecommerce`.`Usuario_Productos` (`UP_U_Id`, `UP_P_Id`, `cantidad`)
+VALUES (4, 3, 1);

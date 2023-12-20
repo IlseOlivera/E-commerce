@@ -99,7 +99,7 @@ public partial class Default : Page
                 Session["admin"] = true;
 
                 // save the user id in the session
-                Session["user"] = reader.GetInt32(0);
+                Session["Id"] = reader.GetInt32(0);
                 // save the user information in the session
                 Session["userEmail"] = reader.GetString(1);
                 Session["userName"] = reader.GetString(3);
@@ -113,7 +113,7 @@ public partial class Default : Page
                 Session["user"] = true;
 
                 // save the user id in the session
-                Session["user"] = reader.GetInt32(0);
+                Session["Id"] = reader.GetInt32(0);
                 // save the user information in the session
                 Session["userEmail"] = reader.GetString(1);
                 Session["userName"] = reader.GetString(3);

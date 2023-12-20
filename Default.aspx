@@ -33,8 +33,8 @@
                         <img src="https://picsum.photos/200" alt="" srcset="">
                         <div class="info">
                             <p class="name"><%# Eval("nombre") %></p>
-                            <p class="price">Precio: <span>$<%# Eval("Precio") %></span></p>
-                            <asp:Button runat="server" Text="Agregar al carrito" OnClick="ObtenerDetalles_Click" CommandArgument='<%# Eval("IdProductos") %>'>
+                            <p class="price">Precio: <span>$<%# Eval("precio") %></span></p>
+                            <asp:Button runat="server" Text="Agregar al carrito" OnClick="btnAgregarCarrito_Click" CommandArgument='<%# Eval("IdProductos") %>'>
                             </asp:Button>
                         </div>
                     </div>
