@@ -17,8 +17,6 @@ public partial class Default : Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
         // check if the user is logged in
         if (Session["user"] != null)
         {

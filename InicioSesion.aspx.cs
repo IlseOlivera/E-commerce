@@ -16,7 +16,22 @@ public partial class Default : Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        // check if the user is logged in
+        if (Session["user"] != null)
+        {
+            // redirect to home page
+            Response.Redirect("Default.aspx");
+        }
+
+        // check if the user is admin
+        if (Session["admin"] != null)
+        {
+            // if the user is admin, show the admin button
+            if ((bool)Session["admin"])
+            {
+                Response.Redirect("Admin.aspx");
+            }
+        }
     }
     
     public void btnRegistrarse_Click(object sender, EventArgs e)
@@ -91,7 +106,7 @@ public partial class Default : Page
                 Session["userLastName"] = reader.GetString(4) + " " + reader.GetString(5);
 
                 // redirect to admin page
-                Response.Redirect("Admin.aspx");
+                Response.Redirect("DefaultProveedor.aspx");
             }
             else
             {
