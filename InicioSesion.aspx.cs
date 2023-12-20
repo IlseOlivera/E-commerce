@@ -5,30 +5,20 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Web.UI;
 using System.Configuration;
+using System.Web.UI.WebControls;
 
 public partial class Default : Page
 {
-    private TextBox txtUsuario;
-    private TextBox txtPassword;
+    public TextBox txtEmail;
+    public TextBox txtPassword;
+    public Label lblError;
+    public Label lblSuccess;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        // check if the user is logged in
-        if (Session["user"] != null)
-        {
-            // navigate to home page
-            Response.Redirect("Default.aspx");
-        }
-
-        // check if the user is admin
-        if (Session["admin"] != null)
-        {
-            // if the user is admin, show the admin button
-            if ((bool)Session["admin"])
-            {
-                Response.Redirect("Admin.aspx");
-            }
-        }
+        
     }
+    
     public void btnRegistrarse_Click(object sender, EventArgs e)
     {
         // navigate to default page
@@ -39,17 +29,20 @@ public partial class Default : Page
     public void btnIniciarSesion_Click(object sender, EventArgs e)
     {
         // get the user and password
-        string user = txtUsuario.Text;
+        string user = txtEmail.Text;
         string password = txtPassword.Text;
 
         // hash the password with md5
-        string hashedPassword = GetMd5Hash(password);
+        string hashedPassword = this.GetMd5Hash(password);
+
+        // show the values
+        lblError.Text = user + " " + hashedPassword;
 
         // check if the user exists in the database
         if (userExists(user, hashedPassword))
         {
             // navigate to the home page
-            Response.Redirect("Home.aspx");
+            Response.Redirect("Default.aspx");
         }
         else
         {
@@ -69,14 +62,14 @@ public partial class Default : Page
     private bool userExists(string user, string password)
     {
         // connection string
-        string connectionString = "Server=localhost;Database=prueba;Uid=root;Pwd=;";
+        string connectionString = "Server=localhost;Database=ecommerce;Uid=root;Pwd=;";
 
         // connect to the database
         MySqlConnection conn = new MySqlConnection(connectionString);
         conn.Open();
 
         // query to check if the user exists
-        string query = "SELECT * FROM usuarios WHERE usuario = '" + user + "' AND password = '" + password + "'";
+        string query = "SELECT * FROM usuarios WHERE correo = '" + user + "' AND password = '" + password + "'";
 
         // execute the query
         MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -89,10 +82,27 @@ public partial class Default : Page
             if (reader.GetInt32(0) == 1)
             {
                 Session["admin"] = true;
+
+                // save the user id in the session
+                Session["user"] = reader.GetInt32(0);
+                // save the user information in the session
+                Session["userEmail"] = reader.GetString(1);
+                Session["userName"] = reader.GetString(3);
+                Session["userLastName"] = reader.GetString(4) + " " + reader.GetString(5);
+
+                // redirect to admin page
+                Response.Redirect("Admin.aspx");
             }
             else
             {
-                Session["admin"] = false;
+                Session["user"] = true;
+
+                // save the user id in the session
+                Session["user"] = reader.GetInt32(0);
+                // save the user information in the session
+                Session["userEmail"] = reader.GetString(1);
+                Session["userName"] = reader.GetString(3);
+                Session["userLastName"] = reader.GetString(4) + " " + reader.GetString(5);
             }
 
             // close the connection
