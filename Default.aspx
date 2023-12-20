@@ -26,49 +26,22 @@
     <div class="container">
         <h1>e-commerce</h1>
 
-        <section class="cards">
-            <div class="card">
-                <img src="https://picsum.photos/200" alt="" srcset="">
-                <div class="info">
-                    <p class="name">Laptop</p>
-                    <p class="price">Precio: <span>$1000</span></p>
-                    <input type="submit" value="Agregar al carrito" />
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/300" alt="" srcset="">
-                <div class="info">
-                    <p class="name">Laptop</p>
-                    <p class="price">Precio: <span>$1000</span></p>
-                    <input type="submit" value="Agregar al carrito" />
-                </div>
-            </div>
+        <div class="cards" runat="server" id="cardsContainer">
+            <asp:Repeater ID="rptProductos" runat="server">
+                <ItemTemplate>
+                    <div class="card">
+                        <img src="https://picsum.photos/200" alt="" srcset="">
+                        <div class="info">
+                            <p class="name"><%# Eval("nombre") %></p>
+                            <p class="price">Precio: <span>$<%# Eval("Precio") %></span></p>
+                            <asp:Button runat="server" Text="Agregar al carrito" OnClick="ObtenerDetalles_Click" CommandArgument='<%# Eval("IdProductos") %>'>
+                            </asp:Button>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
 
-            <div class="card">
-                <img src="https://picsum.photos/200" alt="" srcset="">
-                <div class="info">
-                    <p class="name">Laptop</p>
-                    <p class="price">Precio: <span>$1000</span></p>
-                    <input type="submit" value="Agregar al carrito" />
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://picsum.photos/200/200" alt="" srcset="">
-                <div class="info">
-                    <p class="name">Laptop</p>
-                    <p class="price">Precio: <span>$1000</span></p>
-                    <input type="submit" value="Agregar al carrito" />
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://picsum.photos/200/200" alt="" srcset="">
-                <div class="info">
-                    <p class="name">Laptop</p>
-                    <p class="price">Precio: <span>$1000</span></p>
-                    <input type="submit" value="Agregar al carrito" />
-                </div>
-            </div>
-        </section>
+            
+        </div>
     </div>
 </asp:Content>
