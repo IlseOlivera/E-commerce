@@ -3,20 +3,21 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="navigation" Runat="Server">
-    <li>
-        <asp:LinkButton ID="lnkClientes" runat="server" Text="Clientes" OnClick="btnClientes_Click"></asp:LinkButton>
-    </li>
-    <li>
-        <asp:LinkButton ID="lnkProductos" runat="server" Text="Productos" OnClick="btnProductos_Click"></asp:LinkButton>
-    </li>
-    <li>
-        <asp:LinkButton ID="lnkIniciarSesion" runat="server" Text="Iniciar Sesion" OnClick="btnIniciarSecion_Click"></asp:LinkButton>
-    </li>
-
-    <li>
+     <li>
         <asp:LinkButton ID="lnkCarrito" runat="server" OnClick="btnCarrito_Click">
             <i class="fa-solid fa-cart-shopping"></i>
         </asp:LinkButton>
+    </li>
+    <!-- label to show the name of the user when the session was start -->
+    <li>
+        <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label>
+    </li>
+    <li>
+        <asp:LinkButton ID="lnkCerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click">
+        </asp:LinkButton>
+    </li>
+    <li>
+        <asp:LinkButton ID="lnkIniciarSesion" runat="server" Text="Iniciar Sesion" OnClick="btnIniciarSecion_Click"></asp:LinkButton>
     </li>
 
 </asp:Content>

@@ -16,23 +16,9 @@ public partial class Default : Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // check if the user is logged in
-        if (Session["user"] != null)
-        {
-            // navigate to home page
-            Response.Redirect("Default.aspx");
-        }
-
-        // check if the user is admin
-        if (Session["admin"] != null)
-        {
-            // if the user is admin, show the admin button
-            if ((bool)Session["admin"])
-            {
-                Response.Redirect("Admin.aspx");
-            }
-        }
+        
     }
+    
     public void btnRegistrarse_Click(object sender, EventArgs e)
     {
         // navigate to default page
@@ -97,12 +83,26 @@ public partial class Default : Page
             {
                 Session["admin"] = true;
 
-                // show a message in the label to indicate that the user is admin
-                lblSuccess.Text = "El usuario es admin";
+                // save the user id in the session
+                Session["user"] = reader.GetInt32(0);
+                // save the user information in the session
+                Session["userEmail"] = reader.GetString(1);
+                Session["userName"] = reader.GetString(3);
+                Session["userLastName"] = reader.GetString(4) + " " + reader.GetString(5);
+
+                // redirect to admin page
+                Response.Redirect("Admin.aspx");
             }
             else
             {
-                Session["admin"] = false;
+                Session["user"] = true;
+
+                // save the user id in the session
+                Session["user"] = reader.GetInt32(0);
+                // save the user information in the session
+                Session["userEmail"] = reader.GetString(1);
+                Session["userName"] = reader.GetString(3);
+                Session["userLastName"] = reader.GetString(4) + " " + reader.GetString(5);
             }
 
             // close the connection
