@@ -16,12 +16,18 @@
         <div class="container">
             <div class="registrarse">
                 <h1>Registarse</h1>
-                    <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label>
-                    <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
+                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                     <asp:Label ID="lblContrasena" runat="server" Text="Contrasena"></asp:Label>
                     <asp:TextBox ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:Button ID="btnIniciarSesion" runat="server" Text="Registarse" OnClick="btnRegistarse_Click" />
-    
+                    <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
+                    <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblApellidoM" runat="server" Text="Apellido Materno"></asp:Label>
+                    <asp:TextBox ID="txtApellidoM" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblApellidoP" runat="server" Text="Apellido Paterno"></asp:Label>
+                    <asp:TextBox ID="txtApellidoP" runat="server"></asp:TextBox>
+
+                    <asp:Button ID="btnRegistrar" runat="server" Text="Registarse" OnClick="btnRegistarse_Click" />
                     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
             </div>
         </div>
