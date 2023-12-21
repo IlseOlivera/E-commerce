@@ -128,7 +128,7 @@ public partial class Default : Page
         return false;
     }
 
-    private string GetMd5Hash(string input)
+    public string GetMd5Hash(string input)
     {
         using (MD5 md5Hash = MD5.Create())
         {

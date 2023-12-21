@@ -51,7 +51,7 @@ public partial class Default : Page
             // if the user is admin, show the admin button
             if ((bool)Session["admin"])
             {
-                Response.Redirect("Admin.aspx");
+                Response.Redirect("DefaultProveedor.aspx");
             }
         }
 
@@ -159,7 +159,7 @@ public partial class Default : Page
         else
         {
             // query to insert the product in the carrito
-            string query = "INSERT INTO usuario_productos (UP_U_Id, UP_P_Id) VALUES (" + idUsuario + ", " + idProducto + ")";
+            string query = "INSERT INTO usuario_productos (UP_U_Id, UP_P_Id, cantidad) VALUES (" + idUsuario + ", " + idProducto + ", 1)";
 
             // execute the query
             MySqlCommand cmd = new MySqlCommand(query, conn);
